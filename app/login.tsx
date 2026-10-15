@@ -1,7 +1,7 @@
 import { Label, router } from "expo-router";
 import { Text, TextInput, View, Image, StyleSheet, TouchableOpacity } from "react-native";
 
-export default function Explore() {
+export default function LoginPag() {
     return(
         <View style={s.container}>
             <View style={s.cabecaralho}></View>
@@ -15,7 +15,7 @@ export default function Explore() {
                 <Text>Senha</Text>
                 <TextInput id="senha" placeholder="Digite sua senha" style={s.input}/>
             </View>
-            <TouchableOpacity style={s.btnC} onPress={() => router.push("/cadastro")}>
+            <TouchableOpacity style={s.btnC} onPress={() => router.push("/explore")}>
                     <Text style={s.btnText}>FAZER LOGIN</Text>
                   </TouchableOpacity>
         </View>

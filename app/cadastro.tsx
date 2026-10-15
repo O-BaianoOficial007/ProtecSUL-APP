@@ -1,39 +1,44 @@
 import { Label, router } from "expo-router";
-import { Text, TextInput, View, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, TextInput, View, Image, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 
-export default function Explore() {
+export default function CadastroPag() {
     return(
-         <View style={s.container}>
-                    <View style={s.cabecaralho}></View>
-                    <Image style={s.logo} source={require("../assets/images/logoProtecSul1.png")}/>
-                    <Text style={s.title}>CADASTRO</Text>
-                    <View>
-                        <Text>E-mail:</Text>
-                        <TextInput id="email" placeholder="Digite seu e-mail" style={s.input}/>
-                    </View>
-                    <View>
-                        <Text>Senha</Text>
-                        <TextInput id="senha" placeholder="Digite sua senha" style={s.input}/>
-                    </View>
-                    <View>
-                        <Text>Nome/sobrenome completo</Text>
-                        <TextInput id="nome" placeholder="Digite seu nome/sobrenome completo" style={s.input}/>
-                    </View>
-                    <View>
-                        <Text>Empresa</Text>
-                        <TextInput id="senha" placeholder="Digite nome da sua empresa" style={s.input}/>
-                    </View>
-                    <View>
-                        <Text>Telefone</Text>
-                        <TextInput id="senha" placeholder="Digite sua senha" style={s.input}/>
-                    </View>
+        <ScrollView>
+            <View style={s.container}>
+                <View style={s.cabecaralho}></View>
+                <Image style={s.logo} source={require("../assets/images/logoProtecSul1.png")}/>
+                <Text style={s.title}>CADASTRO</Text>
 
-
-
-                    <TouchableOpacity style={s.btnC} onPress={() => router.push("/cadastro")}>
-                            <Text style={s.btnText}>FAZER LOGIN</Text>
-                          </TouchableOpacity>
+                <View>
+                    <Text>E-mail:</Text>
+                    <TextInput id="email" placeholder="Digite seu e-mail" style={s.input}/>
                 </View>
+
+                <View>
+                    <Text>Senha</Text>
+                    <TextInput id="senha" placeholder="Digite sua senha" style={s.input}/>
+                </View>
+
+                <View>
+                    <Text>Nome/sobrenome completo</Text>
+                    <TextInput id="nome" placeholder="Digite seu nome/sobrenome completo" style={s.input}/>
+                </View>
+
+                <View>
+                    <Text>Empresa</Text>
+                    <TextInput id="senha" placeholder="Digite nome da sua empresa" style={s.input}/>
+                </View>
+
+                <View>
+                    <Text>Telefone</Text>
+                    <TextInput id="senha" placeholder="Digite seu telefone" style={s.input}/>
+                </View>
+
+                <TouchableOpacity style={s.btnC} onPress={() => router.push("/explore")}>
+                        <Text style={s.btnText}>FAZER LOGIN</Text>
+                </TouchableOpacity>
+            </View>
+        </ScrollView>
     )
 }
 const s = StyleSheet.create({
@@ -85,7 +90,8 @@ const s = StyleSheet.create({
         width: 177,
         height: 35,
         borderRadius: 5,
-        marginTop: 30
+        marginTop: 20,
+        marginBottom: 15,
     },
 
     btnText: {
