@@ -1,5 +1,5 @@
-import { Label } from "expo-router";
-import { Text, TextInput, View, Image, StyleSheet } from "react-native";
+import { Label, router } from "expo-router";
+import { Text, TextInput, View, Image, StyleSheet, TouchableOpacity } from "react-native";
 
 export default function Explore() {
     return(
@@ -15,6 +15,9 @@ export default function Explore() {
                 <Text>Senha</Text>
                 <TextInput id="senha" placeholder="Digite sua senha" style={s.input}/>
             </View>
+            <TouchableOpacity style={s.btnC} onPress={() => router.push("/cadastro")}>
+                    <Text style={s.btnText}>FAZER LOGIN</Text>
+                  </TouchableOpacity>
         </View>
     )
 }
@@ -47,9 +50,33 @@ const s = StyleSheet.create({
         fontSize: 30,
         fontFamily: 'Inria Serif',
         fontWeight: 'bold',
-        borderColor: '#000000'
+        borderColor: '#000000',
+        marginBottom: 50,
     },
 
-    input:{},
+    input:{
+        width: 290,
+        height: 32,
+        backgroundColor: '#D9D9D9',
+        borderRadius: 20,
+        paddingHorizontal: 17,
+        paddingVertical: 6,
+        marginBottom: 15,
+    },
+    btnC: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#FFD400',
+        width: 177,
+        height: 35,
+        borderRadius: 5,
+        marginTop: 30
+    },
 
+    btnText: {
+        fontSize: 15,
+        fontFamily: 'Inria Serif',
+        fontWeight: 'bold'
+    },
 })
