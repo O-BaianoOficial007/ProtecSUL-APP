@@ -52,6 +52,7 @@ const s = StyleSheet.create({
         fontWeight: 'bold',
         borderColor: '#000000',
         marginBottom: 50,
+        borderWidth: 1,
     },
 
     input:{
