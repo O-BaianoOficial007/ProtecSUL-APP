@@ -9,7 +9,8 @@ export default function RootLayout() {
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="explore" options={{ headerShown: false }} />
         <Stack.Screen name="sobre" options={{ headerShown: false }} />
-
+        <Stack.Screen name="orcamento" options={{ headerShown: false }} />
+        <Stack.Screen name="favoritos" options={{ headerShown: false }} />
       </Stack>
       <StatusBar style="auto" />
     </>

@@ -11,6 +11,8 @@ import {
 import { Menu } from "./components/menu";
 import { useState } from "react";
 
+
+
 export default function SobrePag() {
     const [open, setOpen] = useState(false)
 
@@ -27,7 +29,7 @@ export default function SobrePag() {
             {open ? <Menu/> : ''}
           
             <ScrollView>
-                <Text style={s.title} >LOGIN</Text>
+                <Text style={s.title} >SOBRE NÓS</Text>
 
                 <Text style={s.paragrafo} >A ProtecSul EPI's nasceu com o propósito de oferecer soluções em Equipamentos de Proteção Individual (EPIs), contribuindo para a segurança, o bem-estar e a qualidade de vida dos profissionais nos mais diversos ambientes de trabalho.<br/><br/>Ao longo de sua trajetória, a empresa vem construindo sua atuação com base em princípios como qualidade, responsabilidade, comprometimento e confiança, buscando entender as necessidades de cada cliente e oferecer produtos adequados às diferentes atividades e níveis de proteção exigidos</Text>
 
@@ -48,6 +50,7 @@ export default function SobrePag() {
         </View>
     );
 }
+
 
 const s = StyleSheet.create({
     container:{
