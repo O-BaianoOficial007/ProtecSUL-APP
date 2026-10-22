@@ -1,4 +1,4 @@
-const data =[
+const produtos =[
     {
     "id": 1,
     "nome": "Kit Máscara SemiFacial de Uso Geral com Filtro 7003 + Retentor - ProtecFace | CA 48816",
@@ -84,4 +84,4 @@ const data =[
     "caracteristicas": ["Classe B", "Suspensão 6 pontos", "CA 29792"]
   }
 ]
-export default data
+export default produtos
