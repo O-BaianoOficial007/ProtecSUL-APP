@@ -1,6 +1,7 @@
 import { Label, router } from "expo-router";
 import { Text, TextInput, View, Image, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 
+
 export default function CadastroPag() {
     return(
         <ScrollView>

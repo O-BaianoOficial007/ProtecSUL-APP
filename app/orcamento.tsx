@@ -4,7 +4,8 @@ import {
     Text,
     TouchableOpacity,
     View,
-    ScrollView
+    ScrollView,
+    TextInput,
 } from "react-native";
 import { useState } from "react";
 import { Menu } from "./components/menu";
@@ -19,10 +20,33 @@ export default function OrcamentoPag(){
                 <TouchableOpacity style={s.imgMenu} onPress={() => setOpen((prev) => !prev)}>
                     <Image source={require('../assets/images/Menu.png')}/>
                 </TouchableOpacity>
-            </View>
-                        
+            </View>                      
             {open ? <Menu/> : ''}
-            <Text>Orçamento</Text>
+            <Text style={s.title}>Orçamento</Text>
+            <Text>E-mail:</Text>
+            <View>
+                <TextInput id="email" placeholder="Digite seu e-mail" style={s.input}/>
+            </View>
+
+            <View>
+                <Text>Nome/sobrenome completo</Text>
+                <TextInput id="nome" placeholder="Digite seu nome/sobrenome completo" style={s.input}/>
+            </View>
+
+            <View>
+                <Text>Empresa</Text>
+                <TextInput id="empresa" placeholder="Digite nome da sua empresa" style={s.input}/>
+            </View>
+
+            <View>
+                <Text>Telefone</Text>
+                <TextInput id="telefone" placeholder="Digite seu telefone" style={s.input}/>
+            </View>
+
+            <View>
+                <Text>Mensagem</Text>
+                <TextInput id="mensagem" placeholder="Digite sua Mensagem" style={s.input}/>
+            </View>
         </View>
     )
 }
@@ -39,6 +63,22 @@ const s = StyleSheet.create({
         backgroundColor: '#000000'
     },
 
+    title: {
+        display: 'flex',
+        width: 229,
+        height: 41,
+        backgroundColor: '#ADADAD',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 2,
+        fontSize: 30,
+        fontFamily: 'Inria Serif',
+        fontWeight: 'bold',
+        borderColor: '#000000',
+        marginBottom: 50,
+        borderWidth: 1,
+    },
+
     imgMenu: {
         justifyContent: 'center',
         alignItems: 'center',
@@ -50,4 +90,14 @@ const s = StyleSheet.create({
         borderRadius: 4,
        
     }, 
+
+    input:{
+        width: 290,
+        height: 32,
+        backgroundColor: '#D9D9D9',
+        borderRadius: 20,
+        paddingHorizontal: 17,
+        paddingVertical: 6,
+        marginBottom: 15,
+    },
 })
