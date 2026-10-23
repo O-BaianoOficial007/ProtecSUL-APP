@@ -1,8 +1,15 @@
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet, Text, View, FlatList } from "react-native";
+import { Item } from '../app/components/item';
+import  dados  from './constants/mock'
 
 export default function CatalogoPag(){
     return(
-        <Text>Catalogo</Text>
+        <View>
+            <FlatList data={dados} renderItem={({item}) => (
+                    <Item picture={item.imagem} title={item.nome} preco={item.preco} />
+                )}>
+            </FlatList>
+        </View>
     )
 }
 

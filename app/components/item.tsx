@@ -1,17 +1,18 @@
 import { ImageSourcePropType, View, Text, Image, StyleSheet } from "react-native";
 
 
-export const Item = ({picture, title, text} : {picture: ImageSourcePropType, title: string, text: string}) => {
+export const Item = ({picture, title, preco} : {picture: ImageSourcePropType | undefined, title: string, preco: number}) => {
     return(
         <View style={s.card}>
             <Image source={picture}/>
             <View style={s.content}>
                 <Text style={s.title}>{title}</Text>
-                <Text>{text}</Text>
+                <Text>{preco}</Text>
             </View>
         </View>
     )
 }
+
 const s = StyleSheet.create({
     card:{
         display: 'flex',
@@ -27,4 +28,5 @@ const s = StyleSheet.create({
         fontWeight: 'bold',
         color: '#4C4C4C'
     },
+    
 })
