@@ -23,13 +23,14 @@ const s = StyleSheet.create({
         alignItems: 'center',
         padding: 10
     },
+
     content:{
         padding: 10,
         gap: 5
     },
+
     title:{
         fontWeight: 'bold',
         color: '#4C4C4C'
-    },
-    
+    },    
 })
