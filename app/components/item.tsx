@@ -18,7 +18,10 @@ const s = StyleSheet.create({
         display: 'flex',
         backgroundColor: '#D9D9D9',
         margin: 30,
-        borderRadius: 10,
+        borderRadius: 20,
+        width: 186,
+        alignItems: 'center',
+        padding: 10
     },
     content:{
         padding: 10,

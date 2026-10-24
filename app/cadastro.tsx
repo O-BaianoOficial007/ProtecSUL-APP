@@ -1,8 +1,32 @@
 import { Label, router } from "expo-router";
 import { Text, TextInput, View, Image, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
+import { salvar, aviso } from "./utils/storage";
+import { useState } from "react";
 
 
 export default function CadastroPag() {
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+    const [nome, setNome] = useState("");
+    const [empresa, setEmpresa] = useState("");
+    const [telefone, setTelefone] = useState("");
+
+    async function fazerCadastro() {
+        if (!email || !senha || !nome || !empresa || !telefone) {
+            aviso("Atenção", "Preencha todos os campos.");
+            return;
+        }
+
+        const usuario = { email, senha, nome, empresa, telefone };
+
+        try {
+            await salvar("usuario", JSON.stringify(usuario));
+            aviso("Sucesso", "Cadastro realizado!");
+            router.replace('/login');
+        } catch (erro) {
+            aviso("Erro", "Não foi possível salvar o cadastro.");
+        }
+    }
     return(
         <ScrollView>
             <View style={s.container}>
@@ -12,31 +36,59 @@ export default function CadastroPag() {
 
                 <View>
                     <Text>E-mail:</Text>
-                    <TextInput id="email" placeholder="Digite seu e-mail" style={s.input}/>
+                    <TextInput 
+                        placeholder="Digite seu e-mail"
+                        style={s.input}  
+                        value={email}
+                        onChangeText={setEmail}
+                        keyboardType="email-address"
+                        autoCapitalize="none"
+                    />
                 </View>
 
                 <View>
                     <Text>Senha</Text>
-                    <TextInput id="senha" placeholder="Digite sua senha" style={s.input}/>
+                    <TextInput 
+                        placeholder="Digite sua senha" 
+                        style={s.input}
+                        value={senha}
+                        onChangeText={setSenha}
+                    />
                 </View>
 
                 <View>
                     <Text>Nome/sobrenome completo</Text>
-                    <TextInput id="nome" placeholder="Digite seu nome/sobrenome completo" style={s.input}/>
+                    <TextInput 
+                        placeholder="Digite seu nome/sobrenome completo" 
+                        style={s.input}
+                        value={nome}
+                        onChangeText={setNome}
+                    />
                 </View>
 
                 <View>
                     <Text>Empresa</Text>
-                    <TextInput id="senha" placeholder="Digite nome da sua empresa" style={s.input}/>
+                    <TextInput 
+                        placeholder="Digite nome da sua empresa" 
+                        style={s.input}
+                        value={empresa}
+                        onChangeText={setEmpresa}
+                    />
                 </View>
 
                 <View>
                     <Text>Telefone</Text>
-                    <TextInput id="senha" placeholder="Digite seu telefone" style={s.input}/>
+                    <TextInput 
+                        placeholder="Digite seu telefone" 
+                        style={s.input}
+                        value={telefone}
+                        onChangeText={setTelefone}
+                        keyboardType="phone-pad"
+                    />
                 </View>
 
-                <TouchableOpacity style={s.btnC} onPress={() => router.push("/explore")}>
-                        <Text style={s.btnText}>FAZER LOGIN</Text>
+                <TouchableOpacity style={s.btnC}>
+                        <Text style={s.btnText} onPress={fazerCadastro}>FAZER CADASTRO</Text>
                 </TouchableOpacity>
             </View>
         </ScrollView>

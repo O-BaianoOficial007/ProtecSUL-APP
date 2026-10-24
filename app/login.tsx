@@ -1,7 +1,42 @@
 import { Label, router } from "expo-router";
 import { Text, TextInput, View, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { ler, aviso } from "./utils/storage";
+import { useState } from "react";
+
 
 export default function LoginPag() {
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+
+    async function fazerLogin() {
+        if (!email || !senha) {
+            aviso("Atenção", "Preencha e-mail e senha.");
+            return;
+        }
+
+        try {
+            const dados = await ler("usuario");
+
+            if (!dados) {
+                aviso("Erro", "Nenhum cadastro encontrado. Faça seu cadastro primeiro.");
+                return;
+            }
+
+            const usuario = JSON.parse(dados);
+
+            const emailCorreto = usuario.email.trim().toLowerCase() === email.trim().toLowerCase();
+            const senhaCorreta = usuario.senha === senha;
+
+            if (emailCorreto && senhaCorreta) {
+                router.replace("/explore");
+            } else {
+                aviso("Erro", "E-mail ou senha incorretos.");
+            }
+        } catch (erro) {
+            aviso("Erro", "Não foi possível verificar o login.");
+        }
+    }
+
     return(
         <View style={s.container}>
             <View style={s.cabecaralho}></View>
@@ -9,15 +44,28 @@ export default function LoginPag() {
             <Text style={s.title} >LOGIN</Text>
             <View>
                 <Text>E-mail:</Text>
-                <TextInput id="email" placeholder="Digite seu e-mail" style={s.input}/>
+                <TextInput 
+                    placeholder="Digite seu e-mail" 
+                    style={s.input}
+                    value={email}
+                    onChangeText={setEmail}
+                    keyboardType="email-address"
+                    autoCapitalize="none"
+                />
             </View>
             <View>
                 <Text>Senha</Text>
-                <TextInput id="senha" placeholder="Digite sua senha" style={s.input}/>
+                <TextInput 
+                    placeholder="Digite sua senha" 
+                    style={s.input}
+                    value={senha}
+                    onChangeText={setSenha}
+                    secureTextEntry
+                />
             </View>
-            <TouchableOpacity style={s.btnC} onPress={() => router.push("/explore")}>
-                    <Text style={s.btnText}>FAZER LOGIN</Text>
-                  </TouchableOpacity>
+            <TouchableOpacity style={s.btnC} onPress={fazerLogin}>
+                <Text style={s.btnText}>FAZER LOGIN</Text>
+            </TouchableOpacity>
         </View>
     )
 }

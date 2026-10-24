@@ -120,7 +120,6 @@ const s = StyleSheet.create({
         width: 46,
         height: 40,
         borderRadius: 4,
-       
-    }, 
+    },
 
 })
